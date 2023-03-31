@@ -10,8 +10,6 @@ class Gainers(scrapy.Spider):
     name = "gainers"
     start_urls = [
         'https://www.coingecko.com/en/crypto-gainers-losers',
-        'https://www.coingecko.com/en/crypto-gainers-losers?top=300',
-        'https://www.coingecko.com/en/crypto-gainers-losers?top=100',
     ]
     def parse(self, response):
         for row in response.xpath('(//table)[1]//tbody//tr'):

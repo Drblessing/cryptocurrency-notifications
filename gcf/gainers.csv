@@ -1,43 +1,22 @@
 name,price,change,href_id,api_id,symbol,platforms
-Lido DAO,$2.46,7.7%,lido-dao,lido-dao,ldo,0x5a98fcbea516cf06857215779fd812ca3bef1b32
-Render,$1.35,6.9%,render-token,render-token,rndr,0x6de037ef9ad2725eb40118bb1702ebb27e4aeb24
-Chainlink,$7.64,5.4%,chainlink,chainlink,link,0x514910771af9ca656af840dff83e8264ecf986ca
-Frax Share,$8.90,5.2%,frax-share,frax-share,fxs,0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0
-Aave,$74.40,4.4%,aave,aave,aave,0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9
-ApeCoin,$4.20,3.8%,apecoin,apecoin,ape,0x4d224452801aced8b2f0aebe155379bb5d594381
-Shiba Inu,$0.000010920103,3.1%,shiba-inu,shiba-inu,shib,0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce
-Mask Network,$6.49,3.0%,mask-network,mask-network,mask,0x69af81e73a73b40adf4f3d4223cd9b1ece623074
-Chiliz,$0.121063,3.0%,chiliz,chiliz,chz,0x3506424f91fd33084466f402d5d97f05f8e3b4af
-Uniswap,$6.07,2.9%,uniswap,uniswap,uni,0x1f9840a85d5af5bf1d1762f925bdaddc4201f984
-0x,$0.290674,25.1%,0x,0x,zrx,0xe41d2489571d322189246dafa5ebde1f4699f498
-Blur,$0.639834,15.7%,blur,blur,blur,0x5283d291dbcf85356a21ba090e6db59121208b44
-Coin98,$0.293204,13.6%,coin98,coin98,c98,0xae12c5930881c53715b369cec7606b70d8eb229f
-aelf,$0.324866,8.9%,aelf,aelf,elf,0xbf2179859fc6d5bee9bf9158632dc51678a4100e
-JasmyCoin,$0.005292556422,8.9%,jasmycoin,jasmycoin,jasmy,0x7420b4b9a0110cdc71fb720908340c03f9bc03ec
-Stargate Finance,$0.733878,8.2%,stargate-finance,stargate-finance,stg,0xaf5191b0de278c7286d6c7cc6ab6bb8a73ba2cd6
-SSV Network,$38.36,8.0%,ssv-network,ssv-network,ssv,0x9d65ff81a3c488d585bbfb0bfe3c7707c7917f54
-Evmos,$0.402681,7.5%,evmos,evmos,evmos,0x93581991f68dbae1ea105233b67f7fa0d6bdee7b
-Telcoin,$0.002702685765,7.1%,telcoin,telcoin,tel,0x467bccd9d29f223bce8043b84e8c8b282827790f
-OriginTrail,$0.389466,7.0%,origintrail,origintrail,trac,0xaa7a9ca87d3694b5755f213b5d04094b8d0f0a6f
-ECOMI,$0.000762686062,6.8%,ecomi,ecomi,omi,0xed35af169af46a02ee13b9d79eb57d6d68c1749e
-Basic Attention,$0.266232,6.2%,basic-attention-token,basic-attention-token,bat,0x0d8775f648430679a709e98d2b0cb6250d2887ef
-COTI,$0.080955508145,5.7%,coti,coti,coti,0xddb3422497e61e13543bea06989c0789117555c5
-GOLCOIN,$3.34,182.2%,golcoin,golcoin,golc,0x095797fd4297fb79883cc912a5ba6313b15c445d
-UwU Lend,$13.28,25.4%,uwu-lend,uwu-lend,uwu,0x55c08ca52497e2f1534b59e2917bf524d4765257
-Gamma Strategies,$0.369548,24.4%,gamma-strategies,gamma-strategies,gamma,0x6bea7cfef803d1e3d5f7c0103f7ded065644e197
-Zano,$1.02,21.3%,zano,zano,zano,0xdb85f6685950e285b1e611037bebe5b34e2b7d78
-Presearch,$0.102960,20.4%,presearch,presearch,pre,0xec213f83defb583af3a000b1c0ada660b1902a0f
-Tap,$0.007243431900,18.3%,tap,tap,xtp,0x6368e1e18c4c419ddfc608a0bed1ccb87b9250fc
-Dimitra,$0.040383402581,17.3%,dimitra,dimitra,dmtr,0x51cb253744189f11241becb29bedd3f1b5384fdb
-Vita Inu,$0.000000013947,16.7%,vita-inu,vita-inu,vinu,0xafcdd4f666c84fed1d8bd825aa762e3714f652c9
-Swash,$0.021939296811,16.3%,swash,swash,swash,0xa130e3a33a4d84b04c3918c4e5762223ae252f80
-LooksRare,$0.156020,15.3%,looksrare,looksrare,looks,0xf4d2888d29d722226fafa5d9b24f9164c092421e
-Spell,$0.000820574790,15.0%,spell-token,spell-token,spell,0x090185f2135308bad17527004364ebcc2d37e5f6
-TriasLab,$2.91,14.6%,trias-token,trias-token,trias,0x3a856d4effa670c54585a5d523e96513e148e95d
-RSS3,$0.191236,13.7%,rss3,rss3,rss3,0xc98d64da73a6616c42117b582e832812e7b8d57f
-Toncoin,$2.28,9.2%,toncoin,the-open-network,ton,0x582d872a1b094fc48f5de31d3b73f2d9be47def1
-Synthetix Network,$2.57,5.8%,synthetix-network-token,havven,snx,0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f
-SXP,$0.641359,35.5%,sxp,swipe,sxp,0x8ce9137d39326ad0cd6491fb5cc0cba0e089b6a9
-Ankr Network,$0.034774106140,7.2%,ankr-network,ankr,ankr,0x8290333cef9e6d528dd5618fb97a76f268f3edd4
-OAX,$0.361947,25.7%,oax,openanx,oax,0x701c244b988a513c945973defa05de933b23fe1d
-DSLA Protocol,$0.002531693775,16.8%,dsla-protocol,stacktical,dsla,0x3affcca64c2a6f4e3b6bd9c64cd2c969efd1ecbe
+GOLCOIN,$2.88,136.1%,golcoin,golcoin,golc,0x095797fd4297fb79883cc912a5ba6313b15c445d
+0x,$0.310300,34.1%,0x,0x,zrx,0xe41d2489571d322189246dafa5ebde1f4699f498
+UwU Lend,$13.29,25.6%,uwu-lend,uwu-lend,uwu,0x55c08ca52497e2f1534b59e2917bf524d4765257
+Gamma Strategies,$0.368103,23.6%,gamma-strategies,gamma-strategies,gamma,0x6bea7cfef803d1e3d5f7c0103f7ded065644e197
+Zano,$1.02,22.8%,zano,zano,zano,0xdb85f6685950e285b1e611037bebe5b34e2b7d78
+Presearch,$0.102428,19.7%,presearch,presearch,pre,0xec213f83defb583af3a000b1c0ada660b1902a0f
+Tap,$0.007210356355,17.8%,tap,tap,xtp,0x6368e1e18c4c419ddfc608a0bed1ccb87b9250fc
+Dimitra,$0.040455181372,17.6%,dimitra,dimitra,dmtr,0x51cb253744189f11241becb29bedd3f1b5384fdb
+Blur,$0.641442,16.5%,blur,blur,blur,0x5283d291dbcf85356a21ba090e6db59121208b44
+XEN Crypto,$0.000001666655,16.0%,xen-crypto,xen-crypto,xen,0x06450dee7fd2fb8e39061434babcfc05599a6fb8
+Vita Inu,$0.000000013908,15.7%,vita-inu,vita-inu,vinu,0xafcdd4f666c84fed1d8bd825aa762e3714f652c9
+TriasLab,$2.92,15.6%,trias-token,trias-token,trias,0x3a856d4effa670c54585a5d523e96513e148e95d
+LooksRare,$0.155560,14.9%,looksrare,looksrare,looks,0xf4d2888d29d722226fafa5d9b24f9164c092421e
+Spell,$0.000809972887,14.1%,spell-token,spell-token,spell,0x090185f2135308bad17527004364ebcc2d37e5f6
+Coin98,$0.294507,14.0%,coin98,coin98,c98,0xae12c5930881c53715b369cec7606b70d8eb229f
+RSS3,$0.188437,13.6%,rss3,rss3,rss3,0xc98d64da73a6616c42117b582e832812e7b8d57f
+Alkimi,$0.165515,13.4%,alkimi,alkimi,$ads,0x3106a0a076bedae847652f42ef07fd58589e001f
+SXP,$0.634830,35.3%,sxp,swipe,sxp,0x8ce9137d39326ad0cd6491fb5cc0cba0e089b6a9
+OAX,$0.351302,22.4%,oax,openanx,oax,0x701c244b988a513c945973defa05de933b23fe1d
+DSLA Protocol,$0.002552982513,20.7%,dsla-protocol,stacktical,dsla,0x3affcca64c2a6f4e3b6bd9c64cd2c969efd1ecbe
+Share,$0.002360095417,12.9%,sharetoken,sharering,shr,0xd98f75b1a3261dab9eed4956c93f33749027a964

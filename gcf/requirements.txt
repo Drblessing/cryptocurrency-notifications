@@ -1,0 +1,7 @@
+bs4
+google-cloud-bigquery
+grpcio-status
+ipykernel
+pandas
+pip-chill
+scrapy
