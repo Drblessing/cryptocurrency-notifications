@@ -76,6 +76,8 @@ def main():
     df_combined = df_combined[df_combined['platforms'] != '']
     # Test that every platform is an ethereum address, i.e. a string that starts with 0x and is 42 characters long
     assert df_combined['platforms'].apply(lambda x: x.startswith('0x') and len(x) == 42).all()
+    # Rename platforms to contract_address
+    df_combined = df_combined.rename(columns={'platforms': 'contract_address'})
     df_combined.to_csv('gainers.csv', index=False)
     # Yay! 
     # Now we have a dataframe with all the coins that gained and have an etherum contract address

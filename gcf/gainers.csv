@@ -1,22 +1,21 @@
-name,price,change,href_id,api_id,symbol,platforms
-GOLCOIN,$2.88,136.1%,golcoin,golcoin,golc,0x095797fd4297fb79883cc912a5ba6313b15c445d
-0x,$0.310300,34.1%,0x,0x,zrx,0xe41d2489571d322189246dafa5ebde1f4699f498
-UwU Lend,$13.29,25.6%,uwu-lend,uwu-lend,uwu,0x55c08ca52497e2f1534b59e2917bf524d4765257
-Gamma Strategies,$0.368103,23.6%,gamma-strategies,gamma-strategies,gamma,0x6bea7cfef803d1e3d5f7c0103f7ded065644e197
-Zano,$1.02,22.8%,zano,zano,zano,0xdb85f6685950e285b1e611037bebe5b34e2b7d78
-Presearch,$0.102428,19.7%,presearch,presearch,pre,0xec213f83defb583af3a000b1c0ada660b1902a0f
-Tap,$0.007210356355,17.8%,tap,tap,xtp,0x6368e1e18c4c419ddfc608a0bed1ccb87b9250fc
-Dimitra,$0.040455181372,17.6%,dimitra,dimitra,dmtr,0x51cb253744189f11241becb29bedd3f1b5384fdb
-Blur,$0.641442,16.5%,blur,blur,blur,0x5283d291dbcf85356a21ba090e6db59121208b44
-XEN Crypto,$0.000001666655,16.0%,xen-crypto,xen-crypto,xen,0x06450dee7fd2fb8e39061434babcfc05599a6fb8
-Vita Inu,$0.000000013908,15.7%,vita-inu,vita-inu,vinu,0xafcdd4f666c84fed1d8bd825aa762e3714f652c9
-TriasLab,$2.92,15.6%,trias-token,trias-token,trias,0x3a856d4effa670c54585a5d523e96513e148e95d
-LooksRare,$0.155560,14.9%,looksrare,looksrare,looks,0xf4d2888d29d722226fafa5d9b24f9164c092421e
-Spell,$0.000809972887,14.1%,spell-token,spell-token,spell,0x090185f2135308bad17527004364ebcc2d37e5f6
-Coin98,$0.294507,14.0%,coin98,coin98,c98,0xae12c5930881c53715b369cec7606b70d8eb229f
-RSS3,$0.188437,13.6%,rss3,rss3,rss3,0xc98d64da73a6616c42117b582e832812e7b8d57f
-Alkimi,$0.165515,13.4%,alkimi,alkimi,$ads,0x3106a0a076bedae847652f42ef07fd58589e001f
-SXP,$0.634830,35.3%,sxp,swipe,sxp,0x8ce9137d39326ad0cd6491fb5cc0cba0e089b6a9
-OAX,$0.351302,22.4%,oax,openanx,oax,0x701c244b988a513c945973defa05de933b23fe1d
-DSLA Protocol,$0.002552982513,20.7%,dsla-protocol,stacktical,dsla,0x3affcca64c2a6f4e3b6bd9c64cd2c969efd1ecbe
-Share,$0.002360095417,12.9%,sharetoken,sharering,shr,0xd98f75b1a3261dab9eed4956c93f33749027a964
+name,price,change,href_id,api_id,symbol,contract_address
+GOLCOIN,$2.96,151.3%,golcoin,golcoin,golc,0x095797fd4297fb79883cc912a5ba6313b15c445d
+0x,$0.300441,29.4%,0x,0x,zrx,0xe41d2489571d322189246dafa5ebde1f4699f498
+UwU Lend,$13.27,25.7%,uwu-lend,uwu-lend,uwu,0x55c08ca52497e2f1534b59e2917bf524d4765257
+Zano,$1.02,22.3%,zano,zano,zano,0xdb85f6685950e285b1e611037bebe5b34e2b7d78
+Gamma Strategies,$0.365082,22.2%,gamma-strategies,gamma-strategies,gamma,0x6bea7cfef803d1e3d5f7c0103f7ded065644e197
+Presearch,$0.102602,19.1%,presearch,presearch,pre,0xec213f83defb583af3a000b1c0ada660b1902a0f
+Dimitra,$0.040263349640,18.0%,dimitra,dimitra,dmtr,0x51cb253744189f11241becb29bedd3f1b5384fdb
+Tap,$0.007208945524,18.0%,tap,tap,xtp,0x6368e1e18c4c419ddfc608a0bed1ccb87b9250fc
+Sommelier,$0.189202,17.8%,sommelier,sommelier,somm,0xa670d7237398238de01267472c6f13e5b8010fd1
+Vita Inu,$0.000000014040,17.2%,vita-inu,vita-inu,vinu,0xafcdd4f666c84fed1d8bd825aa762e3714f652c9
+TriasLab,$2.91,15.7%,trias-token,trias-token,trias,0x3a856d4effa670c54585a5d523e96513e148e95d
+Blur,$0.650813,15.5%,blur,blur,blur,0x5283d291dbcf85356a21ba090e6db59121208b44
+StarLink,$0.000002693704,14.4%,starlink,starlink,starl,0x8e6cd950ad6ba651f6dd608dc70e5886b1aa6b24
+LooksRare,$0.154931,14.3%,looksrare,looksrare,looks,0xf4d2888d29d722226fafa5d9b24f9164c092421e
+Coin98,$0.295700,13.6%,coin98,coin98,c98,0xae12c5930881c53715b369cec7606b70d8eb229f
+X2Y2,$0.065478486144,13.0%,x2y2,x2y2,x2y2,0x1e4ede388cbc9f4b5c79681b7f94d36a11abebc9
+Spell,$0.000806282753,12.8%,spell-token,spell-token,spell,0x090185f2135308bad17527004364ebcc2d37e5f6
+SXP,$0.636278,36.0%,sxp,swipe,sxp,0x8ce9137d39326ad0cd6491fb5cc0cba0e089b6a9
+DSLA Protocol,$0.002571010804,22.6%,dsla-protocol,stacktical,dsla,0x3affcca64c2a6f4e3b6bd9c64cd2c969efd1ecbe
+OAX,$0.350705,20.3%,oax,openanx,oax,0x701c244b988a513c945973defa05de933b23fe1d
