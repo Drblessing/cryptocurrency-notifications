@@ -1,9 +1,10 @@
 from pathlib import Path
 import scrapy
+import json
 from scrapy.crawler import CrawlerProcess,CrawlerRunner
 from twisted.internet import reactor
 from multiprocessing import Process, Queue
-import logging
+from scrapy.utils.log import configure_logging
 
 # Fix deprecation warnings
 import warnings
@@ -11,11 +12,41 @@ from scrapy.exceptions import ScrapyDeprecationWarning
 warnings.filterwarnings("ignore", category=ScrapyDeprecationWarning)
 
 
+import logging
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+logger.propagate = False
+logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+# Create a console handler and set its level
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+# Create a formatter and set it on the console handler
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+console_handler.setFormatter(formatter)
+# Add the console handler to the logger
+logger.addHandler(console_handler)
+
 class Gainers(scrapy.Spider):
     name = "gainers"
     start_urls = [
         'https://www.coingecko.com/en/crypto-gainers-losers',
     ]
+
+    def load_cookies_from_json(self,file_path):
+        with open(file_path, 'r') as f:
+            cookies_data = json.load(f)
+        cookies = {}
+        for cookie in cookies_data:
+            cookies[cookie['name']] = cookie['value']
+        return cookies
+
+    def start_requests(self):
+        
+
+        for url in self.start_urls:
+            logger.info(f"Scraping {url}")
+            yield scrapy.Request(url=url, callback=self.parse)
+
     def parse(self, response):
         for row in response.xpath('(//table)[1]//tbody//tr'):
             yield {
@@ -25,14 +56,12 @@ class Gainers(scrapy.Spider):
                 'href_id': row.xpath('.//td[3]//a/@href').get().split('/')[-1],
             }
 
-
-
 def script(queue):
     try:
         logging.getLogger('scrapy').propagate = False
         process = CrawlerProcess(settings={
             "FEEDS": {
-                "gainers.json": {"format": "json","overwrite": True,"mode":"w"},
+                "gainers.json": {"format": "json","overwrite": True,"mode":"w"}
             },
         })
         process.crawl(Gainers)
@@ -42,20 +71,6 @@ def script(queue):
         queue.put(e)
 
 def main():
-    logger = logging.getLogger(__name__)
-    logger.setLevel(logging.INFO)
-    logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-
-    # Create a console handler and set its level
-    console_handler = logging.StreamHandler()
-    console_handler.setLevel(logging.INFO)
-
-    # Create a formatter and set it on the console handler
-    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-    console_handler.setFormatter(formatter)
-
-    # Add the console handler to the logger
-    logger.addHandler(console_handler)
 
     queue = Queue()
     p = Process(target=script, args=(queue,))
@@ -64,6 +79,7 @@ def main():
     result = queue.get()
     if result is not None:
         raise result
+    
     logger.info("Scraping complete.")
     return "Scraping complete."
 

@@ -127,6 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-gcf/keyfile.json
+keyfile.json
 cookies.txt
 binance.html
+cookies.json
