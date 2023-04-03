@@ -1,8 +1,11 @@
+black
 bs4
 google-cloud-bigquery
 grpcio-status
 ipykernel
 pandas
 pip-chill
+pyarrow
+pytest
 python-dotenv
 scrapy
