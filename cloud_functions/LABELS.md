@@ -17,7 +17,7 @@ Deribit
 Gemini
 Kraken
 Bitmart
-bitFlyer(not all)
+bitFlyer (not all)
 Binance US (not all)
 Bitget (not all)
 MEXC (not all)
