@@ -16,7 +16,7 @@ console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
 
-def main():
+def main(debug=False):
     import pandas as pd
 
     with open("gainers.csv") as f:
@@ -73,6 +73,10 @@ def main():
     HAVING num_tokens >= 3
     ORDER BY num_txns ASC, num_tokens DESC
     """
+
+    if debug:
+        print(query)
+        return
 
     logger.info("Running SQL query on Google Big Cloud.")
     dry_query = client.query(query, job_config=dry_run_config)
