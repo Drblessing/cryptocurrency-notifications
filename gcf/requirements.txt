@@ -1,11 +1,11 @@
 black
 bs4
+db-dtypes
 google-cloud-bigquery
 grpcio-status
 ipykernel
-pandas
+matplotlib
 pip-chill
-pyarrow
 pytest
 python-dotenv
 scrapy

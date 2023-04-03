@@ -1,19 +1,20 @@
 name,price,change,href_id,api_id,symbol,contract_address
-Shib Original Vision,$0.000000247404,47.2%,shib-original-vision,shib-original-vision,sov,0x2c5bc2ba3614fd27fcc7022ea71d9172e2632c16
-Strips Finance,$1.06,46.1%,strips-finance,strips-finance,strp,0x97872eafd79940c7b24f7bcc1eadb1457347adc9
-Dogechain,$0.001675582548,45.0%,dogechain,dogechain,dc,0x7b4328c127b85369d9f82ca0503b000d09cf9180
-A Hunters Dream,$0.000000088262,23.2%,a-hunters-dream,a-hunters-dream,caw,0xf3b9569f82b18aef890de263b84189bd33ebe452
-GNY,$0.062501034085,18.4%,gny,gny,gny,0xb1f871ae9462f1b2c6826e88a7827e76f86751d4
-Enjinstarter,$0.006551027454,17.6%,enjinstarter,enjinstarter,ejs,0x96610186f3ab8d73ebee1cf950c750f3b1fb79c2
-FLEX Coin,$2.32,15.7%,flex-coin,flex-coin,flex,0xfcf8eda095e37a41e002e266daad7efc1579bc0a
-SmarDex,$0.005177143431,15.4%,smardex,smardex,sdex,0x5de8ab7e27f6e7a1fff3e5b337584aa43961beef
-XEN Crypto,$0.000002712939,14.7%,xen-crypto,xen-crypto,xen,0x06450dee7fd2fb8e39061434babcfc05599a6fb8
-Coinweb,$0.024168835181,13.3%,coinweb,coinweb,cweb,0x505b5eda5e25a67e1c24a2bf1a527ed9eb88bf04
-Linear,$0.012074780998,13.2%,linear,linear,lina,0x3e9bc21c9b189c09df3ef1b824798658d5011937
-Alchemy Pay,$0.037238869680,11.5%,alchemy-pay,alchemy-pay,ach,0xed04915c23f00a313a544955524eb7dbd823143d
-Blox,$0.336504,10.9%,blox,blox,cdt,0x177d39ac676ed1c67a2b268ad7f1e58826e5b0af
-IoTeX,$0.028589164203,9.0%,iotex,iotex,iotx,0x6fb3e0a217407efff7ca062d46c26e5d60a14d69
-SXP,$0.880190,26.7%,sxp,swipe,sxp,0x8ce9137d39326ad0cd6491fb5cc0cba0e089b6a9
-Panther Protocol,$0.048265538573,13.4%,panther-protocol,panther,zkp,0x909e34d3f6124c324ac83dcca84b74398a6fa173
-Injective,$5.78,12.6%,injective,injective-protocol,inj,0xe28b3b32b6c345a34ff64674606124dd5aceca30
-Syntropy,$0.049301088350,8.7%,syntropy,noia-network,noia,0xa8c8cfb141a3bb59fea1e2ea6b79b5ecbcd7b6ca
+Dogechain,$0.001676264779,45.4%,dogechain,dogechain,dc,0x7b4328c127b85369d9f82ca0503b000d09cf9180
+Shib Original Vision,$0.000000244158,45.3%,shib-original-vision,shib-original-vision,sov,0x2c5bc2ba3614fd27fcc7022ea71d9172e2632c16
+Strips Finance,$1.05,45.2%,strips-finance,strips-finance,strp,0x97872eafd79940c7b24f7bcc1eadb1457347adc9
+A Hunters Dream,$0.000000088075,23.0%,a-hunters-dream,a-hunters-dream,caw,0xf3b9569f82b18aef890de263b84189bd33ebe452
+SmarDex,$0.005376482770,19.3%,smardex,smardex,sdex,0x5de8ab7e27f6e7a1fff3e5b337584aa43961beef
+Enjinstarter,$0.006551251390,18.9%,enjinstarter,enjinstarter,ejs,0x96610186f3ab8d73ebee1cf950c750f3b1fb79c2
+GNY,$0.061580131941,17.7%,gny,gny,gny,0xb1f871ae9462f1b2c6826e88a7827e76f86751d4
+FLEX Coin,$2.33,16.7%,flex-coin,flex-coin,flex,0xfcf8eda095e37a41e002e266daad7efc1579bc0a
+Linear,$0.012134009555,14.0%,linear,linear,lina,0x3e9bc21c9b189c09df3ef1b824798658d5011937
+XEN Crypto,$0.000002730175,13.6%,xen-crypto,xen-crypto,xen,0x06450dee7fd2fb8e39061434babcfc05599a6fb8
+Coinweb,$0.024201158418,13.4%,coinweb,coinweb,cweb,0x505b5eda5e25a67e1c24a2bf1a527ed9eb88bf04
+Alchemy Pay,$0.037200699433,11.7%,alchemy-pay,alchemy-pay,ach,0xed04915c23f00a313a544955524eb7dbd823143d
+Blox,$0.335844,10.7%,blox,blox,cdt,0x177d39ac676ed1c67a2b268ad7f1e58826e5b0af
+Dash 2 Trade,$0.031002521329,9.4%,dash-2-trade,dash-2-trade,d2t,0x4dd942baa75810a3c1e876e79d5cd35e09c97a76
+IoTeX,$0.028683994064,9.3%,iotex,iotex,iotx,0x6fb3e0a217407efff7ca062d46c26e5d60a14d69
+Shina Inu,$0.000001923402,9.0%,shina-inu,shina-inu,shi,0x243cacb4d5ff6814ad668c3e225246efa886ad5a
+SXP,$0.872156,25.1%,sxp,swipe,sxp,0x8ce9137d39326ad0cd6491fb5cc0cba0e089b6a9
+Injective,$5.86,13.8%,injective,injective-protocol,inj,0xe28b3b32b6c345a34ff64674606124dd5aceca30
+Panther Protocol,$0.048197042985,13.3%,panther-protocol,panther,zkp,0x909e34d3f6124c324ac83dcca84b74398a6fa173
