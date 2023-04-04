@@ -8,6 +8,9 @@ import logging
 
 
 def main(local=False):
+    import os
+    import tempfile
+
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.INFO)
     logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
@@ -23,7 +26,14 @@ def main(local=False):
     # Add the console handler to the logger
     logger.addHandler(console_handler)
 
-    with open("tmp/gainers.json") as f:
+    # Log pwd
+    logger.info(f"Current working directory: {os.getcwd()}")
+
+    tmp_dir = tempfile.gettempdir()
+
+    json_path = os.path.join(tmp_dir, "gainers.json")
+
+    with open(json_path) as f:
         items = json.load(f)
 
     df = pd.DataFrame(items)
@@ -94,7 +104,9 @@ def main(local=False):
     )
     # Rename platforms to contract_address
     df_combined = df_combined.rename(columns={"platforms": "contract_address"})
-    df_combined.to_csv("tmp/gainers.csv", index=False)
+    # Save to csv
+    csv_path = os.path.join(tmp_dir, "gainers.csv")
+    df_combined.to_csv(csv_path, index=False)
     # Yay!
     # Now we have a dataframe with all the coins that gained and have an etherum contract address
     # We can use this to query the blockchain for wallets that have received these tokens in the last 7 days

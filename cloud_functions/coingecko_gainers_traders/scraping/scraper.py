@@ -4,6 +4,8 @@ from scrapy.crawler import CrawlerProcess, CrawlerRunner
 from twisted.internet import reactor
 from multiprocessing import Process, Queue
 import logging
+import os
+import tempfile
 
 # Fix deprecation warnings
 import warnings
@@ -30,12 +32,14 @@ class Gainers(scrapy.Spider):
 
 
 def script(queue):
+    tmp_dir = tempfile.gettempdir()
+    csv_path = os.path.join(tmp_dir, "gainers.json")
     try:
         logging.getLogger("scrapy").propagate = False
         process = CrawlerProcess(
             settings={
                 "FEEDS": {
-                    "tmp/gainers.json": {
+                    csv_path: {
                         "format": "json",
                         "overwrite": True,
                         "mode": "w",

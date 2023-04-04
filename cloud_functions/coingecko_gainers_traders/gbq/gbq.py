@@ -1,4 +1,7 @@
 import logging
+import os
+import tempfile
+
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -16,10 +19,16 @@ console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
 
-def main(debug=False):
+def main(debug=False, local=False):
     import pandas as pd
+    import os
+    import tempfile
 
-    with open("tmp/gainers.csv") as f:
+    tmp_dir = tempfile.gettempdir()
+
+    csv_path = os.path.join(tmp_dir, "gainers.csv")
+
+    with open(csv_path) as f:
         df = pd.read_csv(f)
 
     token_contracts = [f"'{contract}'" for contract in df["contract_address"]]
@@ -99,6 +108,9 @@ def main(debug=False):
     df = query_job.to_dataframe()
     logger.info(f"Found {len(df)} wallets.")
 
-    df.to_csv("tmp/coingecko_gainers_wallets.csv", index=False)
+    df.to_csv(csv_path, index=False)
+
+    if local:
+        df.toc_csv("gainers.csv", index=False)
 
     return df
