@@ -1,0 +1,11 @@
+black
+bs4
+db-dtypes
+google-cloud-bigquery
+grpcio-status
+ipykernel
+matplotlib
+pip-chill
+pytest
+python-dotenv
+scrapy
