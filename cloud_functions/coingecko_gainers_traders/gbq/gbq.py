@@ -19,7 +19,7 @@ logger.addHandler(console_handler)
 def main(debug=False):
     import pandas as pd
 
-    with open("gainers.csv") as f:
+    with open("tmp/gainers.csv") as f:
         df = pd.read_csv(f)
 
     token_contracts = [f"'{contract}'" for contract in df["contract_address"]]
@@ -99,6 +99,6 @@ def main(debug=False):
     df = query_job.to_dataframe()
     logger.info(f"Found {len(df)} wallets.")
 
-    df.to_csv("coingecko_gainers_wallets.csv", index=False)
+    df.to_csv("tmp/coingecko_gainers_wallets.csv", index=False)
 
     return df

@@ -35,7 +35,11 @@ def script(queue):
         process = CrawlerProcess(
             settings={
                 "FEEDS": {
-                    "gainers.json": {"format": "json", "overwrite": True, "mode": "w"},
+                    "tmp/gainers.json": {
+                        "format": "json",
+                        "overwrite": True,
+                        "mode": "w",
+                    },
                 },
             }
         )
