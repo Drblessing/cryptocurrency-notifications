@@ -1,6 +1,7 @@
 black
 bs4
 db-dtypes
+flask
 google-cloud-bigquery
 grpcio-status
 ipykernel

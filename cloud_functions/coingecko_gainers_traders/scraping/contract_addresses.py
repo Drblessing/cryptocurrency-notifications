@@ -107,6 +107,10 @@ def main(local=False):
     # Save to csv
     csv_path = os.path.join(tmp_dir, "gainers.csv")
     df_combined.to_csv(csv_path, index=False)
+
+    if local:
+        df_combined.to_csv("gainers.csv", index=False)
+
     # Yay!
     # Now we have a dataframe with all the coins that gained and have an etherum contract address
     # We can use this to query the blockchain for wallets that have received these tokens in the last 7 days

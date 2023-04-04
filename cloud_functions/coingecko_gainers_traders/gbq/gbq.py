@@ -108,9 +108,11 @@ def main(debug=False, local=False):
     df = query_job.to_dataframe()
     logger.info(f"Found {len(df)} wallets.")
 
-    df.to_csv(csv_path, index=False)
+    # Save df to csv
+    results_path = os.path.join(tmp_dir, "results.csv")
+    df.to_csv(results_path, index=False)
 
     if local:
-        df.toc_csv("gainers.csv", index=False)
+        df.to_csv("results.csv", index=False)
 
     return df
