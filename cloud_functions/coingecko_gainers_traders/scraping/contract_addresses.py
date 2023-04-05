@@ -27,7 +27,7 @@ def main(local=False):
     logger.addHandler(console_handler)
 
     # Log pwd
-    logger.info(f"Current working directory: {os.getcwd()}")
+    logger.debug(f"Current working directory: {os.getcwd()}")
 
     tmp_dir = tempfile.gettempdir()
 
@@ -40,9 +40,21 @@ def main(local=False):
     # remove duplicates
     df = df.drop_duplicates(subset=["href_id"])
 
-    coins = requests.get(
-        "https://api.coingecko.com/api/v3/coins/list?include_platform=true"
-    ).json()
+    # Sleep for 5 seconds
+    time.sleep(5)
+
+    coins_list_url = "https://api.coingecko.com/api/v3/coins/list?include_platform=true"
+
+    coins = requests.get(coins_list_url)
+
+    # Raise error if status code is not 200
+    coins.raise_for_status()
+
+    logger.info(f"Scraped: {coins_list_url}")
+
+    # Convert to json
+    coins = coins.json()
+
     coins = pd.DataFrame(coins)
     # Rename id to api_id
     coins = coins.rename(columns={"id": "api_id"})
@@ -64,6 +76,8 @@ def main(local=False):
     for href_url in href_urls:
         try:
             response = requests.get(href_url)
+            # Raise error if status code is not 200
+            response.raise_for_status()
             soup = BeautifulSoup(response.text, "html.parser")
             # Find the api_id
             api_id = soup.find("span", string="API id")

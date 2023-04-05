@@ -77,7 +77,9 @@ def main():
     result = queue.get()
     if result is not None:
         raise result
-    logger.info("Scraping complete.")
+    logger.info(
+        "Scraped: https://www.coingecko.com/en/crypto-gainers-losers?top=allcomplete"
+    )
     return "Scraping complete."
 
 
