@@ -18,3 +18,5 @@ export default function TestSSR({ test }: TestProps) {
     </div>
   );
 }
+
+export const config = { runtime: 'experimental-edge' };
