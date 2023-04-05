@@ -5,9 +5,13 @@ export const config = {
 };
 
 export default async function onRequest(context: any): Promise<any> {
-  const obj = await context.env.CRYPTO_NOTIFICATIONS.get('gainers.csv');
-  if (obj === null) {
-    return new Response('Not found', { status: 404 });
+  try {
+    const obj = await context.env.CRYPTO_NOTIFICATIONS.get('gainers.csv');
+    if (obj === null) {
+      return new Response('Not found', { status: 404 });
+    }
+    return new Response(obj.body);
+  } catch (e: any) {
+    return new Response(e.message);
   }
-  return new Response(obj.body);
 }
