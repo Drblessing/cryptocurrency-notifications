@@ -1,3 +1,20 @@
-export default function TestSSR() {
-  return <h1>Hey</h1>;
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next';
+
+interface TestProps {
+  test: string;
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  return {
+    props: { test: 'test' },
+  };
+};
+
+export default function TestSSR({ test }: TestProps) {
+  return (
+    <div>
+      <h1>Test SSR</h1>
+      <p>{test}</p>
+    </div>
+  );
 }
