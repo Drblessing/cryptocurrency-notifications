@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Gainers from '@/components/Gainers';
 import { Container, Flex, Box } from '@chakra-ui/react';
 
 export default function Home() {
@@ -13,7 +14,7 @@ export default function Home() {
         </Box>
 
         <Box as='main' flex='1'>
-          hey
+          <Gainers />
         </Box>
         <Box as='footer'>
           <Footer />
