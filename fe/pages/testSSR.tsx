@@ -2,7 +2,7 @@ import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next';
 import { useEffect, useState } from 'react';
 import { createColumnHelper } from '@tanstack/react-table';
 import DataTable from '@/components/DataTable';
-import getBaseURL from '../lib/utils/getBaseURL';
+import getBaseURL from '@/components/getBaseURL';
 
 export default function TestSSR() {
   const [gainerTokens, setGainerToken] = useState<GainerToken[]>();

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { createColumnHelper } from '@tanstack/react-table';
 import DataTable from '@/components/DataTable';
-import getBaseURL from '../lib/utils/getBaseURL';
+import getBaseURL from '@/components/getBaseURL';
 
 const GainersTables = function () {
   const [gainerTokens, setGainerToken] = useState<GainerToken[]>();
