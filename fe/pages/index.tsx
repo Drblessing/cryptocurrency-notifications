@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Gainers from '@/components/Gainers';
 import GainersTable from '@/components/GainersTable';
+import CTA from '@/components/CTA';
 
 import { Container, Flex, Box } from '@chakra-ui/react';
 
@@ -16,7 +17,8 @@ export default function Home() {
         </Box>
 
         <Box as='main' flex='1'>
-          <GainersTable />
+          <CTA />
+          {/* <GainersTable /> */}
         </Box>
         <Box as='footer'>
           <Footer />

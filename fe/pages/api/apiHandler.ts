@@ -197,10 +197,8 @@ export default async function handler(req: NextRequest): Promise<Response> {
       } else {
         // Production
         // Get gainers.csv from cloudflare r2
-        const obj = await process.env.CRYPTO_NOTIFICATIONS!.get('gainers.csv');
-        const gainersObj: string = obj.body;
-        const gainers = parseGainers(gainersObj);
-        return new Response(JSON.stringify(gainers), { status: 200 });
+        const obj = await process.env.CRYPTO_NOTIFICATIONS.get('gainers.csv');
+        return new Response(obj.body, { status: 200 });
       }
     default:
       return new Response(
