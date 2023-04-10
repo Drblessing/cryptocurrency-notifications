@@ -4,7 +4,7 @@ import { createColumnHelper } from '@tanstack/react-table';
 import DataTable from '@/components/DataTable';
 import getBaseURL from '@/lib/utils/getBaseURL';
 
-export default function TestSSR({ gainers, results }: any) {
+export default function TestSSR() {
   const [gainerTokens, setGainerToken] = useState<GainerToken[]>();
 
   interface DataProps {
