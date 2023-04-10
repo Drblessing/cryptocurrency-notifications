@@ -90,18 +90,6 @@ export default async function handler(req: NextRequest): Promise<Response> {
       contract_address.length !== 42 ||
       !contract_address.startsWith('0x')
     ) {
-      console.log('1.');
-      console.log(
-        !name,
-        !price,
-        !percent_change,
-        !href_id,
-        !api_id,
-        !symbol,
-        !contract_address,
-        contract_address.length !== 42,
-        contract_address.startsWith('0x')
-      );
       return false;
     }
 
@@ -176,8 +164,6 @@ export default async function handler(req: NextRequest): Promise<Response> {
     if (lines.length < 1) {
       throw new Error('No lines in gainers');
     }
-
-    console.log(`Parsing ${lines.length - 1} tokens`);
 
     const headers = lines[0].split(',');
     const tokens = lines

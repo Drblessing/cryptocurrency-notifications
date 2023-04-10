@@ -5,7 +5,7 @@ import DataTable from '@/components/DataTable';
 import getBaseURL from '@/lib/utils/getBaseURL';
 
 export default function TestSSR({ gainers, results }: any) {
-  const [gainerTokens, setGainerToken] = useState<GainerToken[]>(gainers);
+  const [gainerTokens, setGainerToken] = useState<GainerToken[]>();
 
   interface DataProps {
     gainers: GainerToken[];
@@ -70,6 +70,7 @@ export default function TestSSR({ gainers, results }: any) {
 
   return (
     <div>
+      {!gainerTokens && <div>Loading...</div>}
       {gainerTokens && (
         <DataTable<GainerToken> columns={columns} data={gainerTokens} />
       )}
