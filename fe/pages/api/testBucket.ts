@@ -8,6 +8,7 @@ export const config = {
 declare const process: any;
 
 export default async function onRequest(context: any): Promise<any> {
+  console.log(process.env.NODE_ENV);
   try {
     const obj = await process.env.CRYPTO_NOTIFICATIONS.get('gainers.csv');
     if (obj === null) {
@@ -15,6 +16,6 @@ export default async function onRequest(context: any): Promise<any> {
     }
     return new Response(obj.body);
   } catch (e: any) {
-    return new Response(e.message);
+    return new Response(e.message, { status: 500 });
   }
 }
