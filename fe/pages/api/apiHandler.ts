@@ -11,6 +11,7 @@ type ResponseData = {
 // Master apiHandler for all api calls.
 // Needed due to limitations of Cloudflare.
 // Switch between api calls based on the path.
+declare const process: any;
 export default async function handler(req: NextRequest): Promise<Response> {
   // In function data
   interface DataProps {
@@ -193,15 +194,14 @@ export default async function handler(req: NextRequest): Promise<Response> {
         const res = sampleGainers;
         const gainers = parseGainers(res);
         return new Response(JSON.stringify(gainers), { status: 200 });
+      } else {
+        // Production
+        // Get gainers.csv from cloudflare r2
+        const obj = await process.env.CRYPTO_NOTIFICATIONS!.get('gainers.csv');
+        const gainersObj: string = obj.body;
+        const gainers = parseGainers(gainersObj);
+        return new Response(JSON.stringify(gainers), { status: 200 });
       }
-
-      return new Response(
-        JSON.stringify({
-          message: 'Hello from the methods API',
-        }),
-        { status: 200 }
-      );
-    // default
     default:
       return new Response(
         JSON.stringify({
