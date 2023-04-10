@@ -8,9 +8,6 @@ export const config = {
 declare const process: any;
 
 export default async function onRequest(context: any): Promise<any> {
-    
-
-
   console.log(process.env.NODE_ENV);
   try {
     const obj = await process.env.CRYPTO_NOTIFICATIONS.get('gainers.csv');
