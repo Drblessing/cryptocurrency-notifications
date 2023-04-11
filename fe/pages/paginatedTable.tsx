@@ -1,6 +1,14 @@
+// @ts-nochec
 import { useMemo, useEffect, useState } from 'react';
 import { useTable, usePagination } from 'react-table';
 import makeData from '@/components/makeData';
+import { MdOpenInNew } from 'react-icons/md';
+import {
+  MdFirstPage,
+  MdKeyboardArrowLeft,
+  MdKeyboardArrowRight,
+  MdLastPage,
+} from 'react-icons/md';
 
 import {
   Table,
@@ -12,7 +20,14 @@ import {
   Td,
   TableCaption,
   TableContainer,
+  HStack,
+  Text,
+  Icon,
 } from '@chakra-ui/react';
+
+import NextLink from 'next/link';
+import { Link } from '@chakra-ui/react';
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 function TableFunc({ columns, data }: any) {
   // Use the state and functions returned from useTable to build your UI
@@ -124,38 +139,42 @@ function App() {
   const columns = useMemo(
     () => [
       {
-        Header: 'Name',
-        columns: [
-          {
-            Header: 'First Name',
-            accessor: 'firstName',
-          },
-          {
-            Header: 'Last Name',
-            accessor: 'lastName',
-          },
-        ],
+        Header: 'First Name',
+        accessor: 'firstName',
       },
       {
-        Header: 'Info',
-        columns: [
-          {
-            Header: 'Age',
-            accessor: 'age',
-          },
-          {
-            Header: 'Visits',
-            accessor: 'visits',
-          },
-          {
-            Header: 'Status',
-            accessor: 'status',
-          },
-          {
-            Header: 'Profile Progress',
-            accessor: 'progress',
-          },
-        ],
+        Header: 'Last Name',
+        accessor: 'lastName',
+      },
+      {
+        Header: 'Age',
+        accessor: 'age',
+        Cell: ({ value }: any) => {
+          return (
+            <HStack>
+              <Text>{value}</Text>
+              <Link as={NextLink} href='https://google.com' isExternal>
+                <Icon
+                  as={MdOpenInNew}
+                  color='blue.500'
+                  verticalAlign={'middle'}
+                />
+              </Link>
+            </HStack>
+          );
+        },
+      },
+      {
+        Header: 'Visits',
+        accessor: 'visits',
+      },
+      {
+        Header: 'Status',
+        accessor: 'status',
+      },
+      {
+        Header: 'Profile Progress',
+        accessor: 'progress',
       },
     ],
     []
