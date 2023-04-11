@@ -137,10 +137,7 @@ export default function CallToActionWithAnnotation() {
                     <Tr {...row.getRowProps()}>
                       {row.cells.map((cell) => {
                         return (
-                          <Td
-                            {...cell.getCellProps()}
-                            align={cell.column.align}
-                          >
+                          <Td {...cell.getCellProps()}>
                             {cell.render('Cell')}
                           </Td>
                         );
