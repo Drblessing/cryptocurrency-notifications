@@ -2,6 +2,9 @@
 import { useMemo, useEffect, useState } from 'react';
 import ReactTable from '@/components/Table';
 import getBaseURL from '@/components/getBaseURL';
+import { HStack, Link, Icon, Text } from '@chakra-ui/react';
+import NextLink from 'next/link';
+import { MdOpenInNew } from 'react-icons/md';
 
 function App() {
   const [gainerToken, setGainerToken] = useState(null);
@@ -47,7 +50,30 @@ function App() {
   const gainerColumns = useMemo(
     () =>
       [
-        { Header: 'name', accessor: 'name' },
+        // Use href cell to create a link to the coin
+        {
+          Header: 'name',
+          accessor: 'name',
+          Cell: (row) => {
+            console.log(row.row.original.href_id);
+            return (
+              <HStack>
+                <Text>{row.value}</Text>
+                <Link
+                  as={NextLink}
+                  href={`https://coingecko.com/en/coins/${row.row.original.href_id}`}
+                  isExternal
+                >
+                  <Icon
+                    as={MdOpenInNew}
+                    color='blue.500'
+                    verticalAlign={'middle'}
+                  />
+                </Link>
+              </HStack>
+            );
+          },
+        },
         { Header: 'symbol', accessor: 'symbol' },
         { Header: '24hr (%)', accessor: 'percent_change' },
         { Header: 'api id', accessor: 'api_id' },
