@@ -1,4 +1,4 @@
-// @ts-nochec
+// @ts-nocheck
 import { useMemo, useEffect, useState } from 'react';
 import { useTable, usePagination } from 'react-table';
 import makeData from '@/components/makeData';
