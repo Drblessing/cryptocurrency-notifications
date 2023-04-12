@@ -34,7 +34,7 @@ import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 import { Button, Flex, Input, Select, Spacer } from '@chakra-ui/react';
 
-function TableFunc({ columns, data }: any) {
+export default function TableFunc({ columns, data }: any) {
   // Use the state and functions returned from useTable to build your UI
   const {
     getTableProps,
@@ -66,7 +66,7 @@ function TableFunc({ columns, data }: any) {
 
   // Render the UI for your table
   return (
-    <TableContainer maxW={'2xl'}>
+    <TableContainer maxW={'3xl'}>
       <Table {...getTableProps()}>
         <Thead>
           {headerGroups.map((headerGroup) => (
@@ -181,65 +181,3 @@ function TableFunc({ columns, data }: any) {
     </TableContainer>
   );
 }
-
-function App() {
-  const columns = useMemo(
-    () => [
-      {
-        Header: 'First Name',
-        accessor: 'firstName',
-      },
-      {
-        Header: 'Last Name',
-        accessor: 'lastName',
-      },
-      {
-        Header: 'Age',
-        accessor: 'age',
-        Cell: ({ value }: any) => {
-          return (
-            <HStack>
-              <Text>{value}</Text>
-              <Link as={NextLink} href='https://google.com' isExternal>
-                <Icon
-                  as={MdOpenInNew}
-                  color='blue.500'
-                  verticalAlign={'middle'}
-                />
-              </Link>
-            </HStack>
-          );
-        },
-      },
-      {
-        Header: 'Visits',
-        accessor: 'visits',
-      },
-      {
-        Header: 'Status',
-        accessor: 'status',
-      },
-      {
-        Header: 'Profile Progress',
-        accessor: 'progress',
-      },
-    ],
-    []
-  );
-
-  const [data, setData] = useState(null);
-
-  // generate random data in use effect
-  useEffect(() => {
-    setData(makeData(10000));
-  }, []);
-
-  return (
-    <>
-      {!data && <div>loading...</div>}
-      {data && <TableFunc columns={columns} data={data} />}
-    </>
-  );
-}
-
-export default App;
