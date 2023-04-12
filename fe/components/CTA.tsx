@@ -23,10 +23,56 @@ import {
   TableContainer,
 } from '@chakra-ui/react';
 
+import { useTable } from 'react-table';
+import { useMemo } from 'react';
+
 export default function CallToActionWithAnnotation() {
+  const data = useMemo(
+    () => [
+      {
+        from: 'inches',
+        to: 'millimetres (mm)',
+        factor: 25.4,
+      },
+      {
+        from: 'feet',
+        to: 'centimetres (cm)',
+        factor: 30.48,
+      },
+      {
+        from: 'yards',
+        to: 'metres (m)',
+        factor: 0.91444,
+      },
+    ],
+    []
+  );
+
+  const columns = useMemo(
+    () =>
+      [
+        { Header: 'from', accessor: 'from', align: 'right' },
+        {
+          Header: 'To convert',
+          accessor: 'to',
+          align: 'right',
+        },
+        {
+          Header: 'multiply by',
+          accessor: 'factor',
+          align: 'right',
+        },
+      ] as const,
+    []
+  );
+
+  const tableInstance = useTable({ columns, data });
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    tableInstance;
+
   return (
     <>
-      <Container maxW={'3xl'}>
+      <Container maxW={'2xl'}>
         <Stack
           as={Box}
           textAlign={'center'}
@@ -71,39 +117,35 @@ export default function CallToActionWithAnnotation() {
             </Button>
           </Stack>
           <TableContainer>
-            <Table variant='simple'>
+            <Table {...getTableProps()}>
               <TableCaption>Imperial to metric conversion factors</TableCaption>
               <Thead>
-                <Tr>
-                  <Th>To convert</Th>
-                  <Th>into</Th>
-                  <Th isNumeric>multiply by</Th>
-                </Tr>
+                {headerGroups.map((headerGroup) => (
+                  <Tr {...headerGroup.getHeaderGroupProps()}>
+                    {headerGroup.headers.map((column) => (
+                      <Th {...column.getHeaderProps()}>
+                        {column.render('Header')}
+                      </Th>
+                    ))}
+                  </Tr>
+                ))}
               </Thead>
-              <Tbody>
-                <Tr>
-                  <Td>inches</Td>
-                  <Td>millimetres (mm)</Td>
-                  <Td isNumeric>25.4</Td>
-                </Tr>
-                <Tr>
-                  <Td>feet</Td>
-                  <Td>centimetres (cm)</Td>
-                  <Td isNumeric>30.48</Td>
-                </Tr>
-                <Tr>
-                  <Td>yards</Td>
-                  <Td>metres (m)</Td>
-                  <Td isNumeric>0.91444</Td>
-                </Tr>
+              <Tbody {...getTableBodyProps()}>
+                {rows.map((row) => {
+                  prepareRow(row);
+                  return (
+                    <Tr {...row.getRowProps()}>
+                      {row.cells.map((cell) => {
+                        return (
+                          <Td {...cell.getCellProps()}>
+                            {cell.render('Cell')}
+                          </Td>
+                        );
+                      })}
+                    </Tr>
+                  );
+                })}
               </Tbody>
-              <Tfoot>
-                <Tr>
-                  <Th>To convert</Th>
-                  <Th>into</Th>
-                  <Th isNumeric>multiply by</Th>
-                </Tr>
-              </Tfoot>
             </Table>
           </TableContainer>
         </Stack>

@@ -186,6 +186,13 @@ export default async function handler(req: NextRequest): Promise<Response> {
   const searchParams = new URLSearchParams(url.search);
   const method = searchParams.get('method');
 
+  // Headers
+  const headers = {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin':
+      'https://cryptocurrency-notifications.pages.dev',
+  };
+
   // Switch between api calls based on the method
   switch (method) {
     case 'getGainers':
@@ -193,19 +200,19 @@ export default async function handler(req: NextRequest): Promise<Response> {
       if (process.env.NODE_ENV === 'development') {
         const res = sampleGainers;
         const gainers = parseGainers(res);
-        return new Response(JSON.stringify(gainers), { status: 200 });
+        return new Response(JSON.stringify(gainers), { status: 200, headers });
       } else {
         // Production
         // Get gainers.csv from cloudflare r2
         const obj = await process.env.CRYPTO_NOTIFICATIONS.get('gainers.csv');
-        return new Response(obj.body, { status: 200 });
+        return new Response(obj.body, { status: 200, headers });
       }
     default:
       return new Response(
         JSON.stringify({
           message: 'Hello from the API',
         }),
-        { status: 200 }
+        { status: 200, headers }
       );
   }
 }

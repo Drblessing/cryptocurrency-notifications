@@ -18,7 +18,6 @@ export default function Home() {
 
         <Box as='main' flex='1'>
           <CTA />
-          {/* <GainersTable /> */}
         </Box>
         <Box as='footer'>
           <Footer />
