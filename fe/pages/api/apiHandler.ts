@@ -205,13 +205,16 @@ export default async function handler(req: NextRequest): Promise<Response> {
         // Production
         // Get gainers.csv from cloudflare r2
         try {
-        const obj = await process.env.CRYPTO_NOTIFICATIONS.get('gainers.csv');
-        return new Response(obj.body, { status: 200, headers });
+          const obj = await process.env.CRYPTO_NOTIFICATIONS.get('gainers.csv');
+          return new Response(obj.body, { status: 200, headers });
         } catch (e) {
           const res = sampleGainers;
           const gainers = parseGainers(res);
-          return new Response(JSON.stringify(gainers), { status: 200, headers });
-
+          return new Response(JSON.stringify(gainers), {
+            status: 200,
+            headers,
+          });
+        }
       }
     default:
       return new Response(
