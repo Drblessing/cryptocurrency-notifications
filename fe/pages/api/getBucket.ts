@@ -13,7 +13,7 @@ export default async function onRequest(context: any): Promise<any> {
     if (obj === null) {
       return new Response('Not found', { status: 404 });
     }
-    return new Response(obj.body);
+    return new Response(JSON.stringify(obj.body));
   } catch (e: any) {
     return new Response(e.message);
   }
