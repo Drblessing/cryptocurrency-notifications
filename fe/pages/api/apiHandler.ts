@@ -189,8 +189,7 @@ export default async function handler(req: NextRequest): Promise<Response> {
   // Headers
   const headers = {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin':
-      'https://cryptocurrency-notifications.pages.dev',
+    'Access-Control-Allow-Origin': '*',
   };
 
   // Switch between api calls based on the method

@@ -25,7 +25,6 @@ function App() {
     fetchData();
   }, []);
 
-  console.log(gainerToken);
   const data = useMemo(
     () => [
       {
@@ -55,7 +54,7 @@ function App() {
           Header: 'name',
           accessor: 'name',
           Cell: (row) => {
-            console.log(row.row.original.href_id);
+            row.row.original.href_id;
             return (
               <HStack>
                 <Text>{row.value}</Text>
