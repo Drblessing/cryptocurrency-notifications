@@ -11,6 +11,7 @@
   "dependencies": {
     "@chakra-ui/icons": "^2.0.18",
     "@chakra-ui/react": "^2.5.5",
+    "@chakra-ui/system": "^2.5.5",
     "@cloudflare/next-on-pages": "^0.8.0",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
@@ -29,7 +30,6 @@
     "typescript": "5.0.3"
   },
   "devDependencies": {
-    "vercel": "^28.18.5",
-    "wrangler": "^2.15.0"
+    "vercel": "^28.18.5"
   }
 }
