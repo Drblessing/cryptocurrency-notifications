@@ -197,6 +197,7 @@ export default async function handler(req: NextRequest): Promise<Response> {
     case 'getGainers':
       // Local
       if (process.env.NODE_ENV === 'development') {
+        console.log('DEV');
         const res = sampleGainers;
         const gainers = parseGainers(res);
         return new Response(JSON.stringify(gainers), { status: 200, headers });
@@ -204,12 +205,18 @@ export default async function handler(req: NextRequest): Promise<Response> {
         // Production
         // Get gainers.csv from cloudflare r2
         try {
+          console.log('TRY BUCKET');
           const obj = await process.env.CRYPTO_NOTIFICATIONS.get('gainers.csv');
+          console.log(process.env.CRYPTO_NOTIFICATIONS);
+          console.log(obj);
+
           return new Response(JSON.stringify(obj.body), {
             status: 200,
             headers,
           });
         } catch (e) {
+          console.log(e);
+          console.log('FALLBACK');
           const res = sampleGainers;
           const gainers = parseGainers(res);
           return new Response(JSON.stringify(gainers), {

@@ -25,5 +25,9 @@
     "react-icons": "^4.8.0",
     "react-table": "^7.8.0",
     "typescript": "5.0.3"
+  },
+  "devDependencies": {
+    "vercel": "^28.18.5",
+    "wrangler": "^2.15.0"
   }
 }
