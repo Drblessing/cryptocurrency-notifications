@@ -16,7 +16,7 @@ export default async function onRequest(context: any): Promise<any> {
 
     const text = await obj.text();
 
-    return new Response(text);
+    return new Response(JSON.stringify(text));
   } catch (e: any) {
     return new Response(e.message);
   }
