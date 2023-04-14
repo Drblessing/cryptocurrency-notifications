@@ -142,6 +142,7 @@ export default async function onRequest(context: any): Promise<any> {
   };
   const headers = {
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
   };
   try {
     const obj = await process.env.CRYPTO_NOTIFICATIONS.get('gainers.csv');
