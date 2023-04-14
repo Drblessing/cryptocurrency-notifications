@@ -150,9 +150,9 @@ export default async function onRequest(context: any): Promise<any> {
     }
 
     const text = await obj.text();
-    const gainers = parseGainers(text);
+    // const gainers = parseGainers(text);
 
-    return new Response('gainers', { status: 200, headers });
+    return new Response(text, { status: 200, headers });
   } catch (e: any) {
     return new Response(e.message);
   }
