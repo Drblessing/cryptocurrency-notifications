@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 interface DataProps {
   gainers: GainerToken[];
@@ -96,11 +96,11 @@ const parseToken = (token: string[]): GainerToken => {
 };
 
 const parseGainers = (gainers: string): GainerToken[] => {
+  console.log(gainers);
   const lines = gainers.split('\n');
   if (lines.length < 1) {
     throw new Error('No lines in gainers');
   }
-
   const headers = lines[0].split(',');
   const tokens = lines
     .slice(1)
@@ -117,6 +117,8 @@ const parseGainers = (gainers: string): GainerToken[] => {
 };
 
 export default function Testing() {
+  const [t, setT] = useState<any>();
+
   const response = `name,price,change,href_id,api_id,symbol,contract_address
     Swarm Markets,$0.175009,71.8%,swarm-markets,swarm-markets,smt,0xb17548c7b510427baac4e267bea62e800b247173
     Pendle,$0.535991,35.7%,pendle,pendle,pendle,0x808507121b80c02388fad14726482e061b8da827
@@ -157,21 +159,21 @@ export default function Testing() {
     Image Generation AI,$0.013866059238,17.4%,image-generation-ai,imgnai,imgnai,0xa735a3af76cc30791c61c10d585833829d36cbe0
     FloraChain,$2.42,227.2%,florachain,florachain-yield-token,fyt,0x77f2be773ca0887ba2b3ef8344c8cf13c98d8ca7
     RocketX exchange,$0.089471458985,42.2%,rocketx-exchange,rocketx,rvf,0xdc8af07a7861bedd104b8093ae3e9376fc8596d2`;
-  const test = parseGainers(response);
 
   useEffect(() => {
     // Define async function to fetch data
     async function fetchData() {
-      fetch('https://cryptocurrency-notifications.pages.dev/api/getBucket', {
-        mode: 'no-cors',
-      })
-        .then((response) => {
-          console.log('response');
-          console.log(response);
-          return response.text();
-        })
-        .then((data) => console.log(data))
-        .catch((error) => console.error(error));
+      const response = await fetch(
+        'https://cryptocurrency-notifications.pages.dev/api/getBucket'
+      );
+
+      const data = await response.text();
+
+      const testData = data.trim();
+
+      const gainerTokens = parseGainers(testData);
+
+      setT(gainerTokens);
     }
 
     // Call function
@@ -180,7 +182,10 @@ export default function Testing() {
 
   return (
     <div>
-      <h1>{JSON.stringify(test)}</h1>
+      {/* Loading */}
+      {!t && <div>Loading...</div>}
+      {/* Loaded */}
+      {t && <div>{JSON.stringify(t)}</div>}
     </div>
   );
 }
