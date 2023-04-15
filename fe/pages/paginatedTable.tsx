@@ -12,10 +12,11 @@ function App() {
   useEffect(() => {
     // Define async function to fetch data
     async function fetchData() {
-      const res = await fetch(
-        `${getBaseURL()}/api/apiHandler?method=getGainers`
-      );
+      const res = await fetch(`${getBaseURL()}/api/getBucket`);
       // Raise for error
+      if (!res.ok) {
+        throw new Error(res.statusText);
+      }
 
       const data = await res.json();
       setGainerToken(data);
