@@ -26,6 +26,11 @@ import {
 import { useTable } from 'react-table';
 import { useMemo } from 'react';
 
+import ExternalLink from '@/components/ExternalLink';
+
+import CoingeckoTradersTable from '@/components/CoingeckoTradersTable';
+import GainersTable from '@/components/GainersTable';
+
 export default function CallToActionWithAnnotation() {
   const data = useMemo(
     () => [
@@ -72,7 +77,7 @@ export default function CallToActionWithAnnotation() {
 
   return (
     <>
-      <Container maxW={'2xl'}>
+      <Container maxW={'3xl'}>
         <Stack
           as={Box}
           textAlign={'center'}
@@ -84,70 +89,33 @@ export default function CallToActionWithAnnotation() {
             fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
             lineHeight={'110%'}
           >
-            Make money from <br />
+            Who has bough the most recent <br />
             <Text as={'span'} color={'green.400'}>
-              your audience
+              Coingecko Gainers?
+              <ExternalLink href='https://www.coingecko.com/en/crypto-gainers-losers' />
             </Text>
           </Heading>
           <Text color={'gray.500'}>
-            Monetize your content by charging your most loyal readers and reward
-            them loyalty points. Give back to your loyal readers by granting
-            them access to your pre-releases and sneak-peaks.
+            Everyday at 00:00 UTC, we grab the top 30 gainers on coingecko over
+            the last 24h, for the top 1000 and all coins. Then, we filter this
+            list for ERC20 coins, and grab their contract addresses. Finally, we
+            send a request to google big query, and grab all the wallets that
+            have bought at least three of these coins, between 48 hours and 7
+            days ago. We display the gainers, as well as the results, the number
+            of gainers they have bought, and the number of transactions they
+            have made involving gainers. We hope you can find some interesting
+            insights! Source code on github.
           </Text>
-          <Stack
-            direction={'column'}
-            spacing={3}
-            align={'center'}
-            alignSelf={'center'}
-            position={'relative'}
-          >
-            <Button
-              colorScheme={'green'}
-              bg={'green.400'}
-              rounded={'full'}
-              px={6}
-              _hover={{
-                bg: 'green.500',
-              }}
-            >
-              Get Started
-            </Button>
-            <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
-              Learn more
-            </Button>
-          </Stack>
-          <TableContainer>
-            <Table {...getTableProps()}>
-              <TableCaption>Imperial to metric conversion factors</TableCaption>
-              <Thead>
-                {headerGroups.map((headerGroup) => (
-                  <Tr {...headerGroup.getHeaderGroupProps()}>
-                    {headerGroup.headers.map((column) => (
-                      <Th {...column.getHeaderProps()}>
-                        {column.render('Header')}
-                      </Th>
-                    ))}
-                  </Tr>
-                ))}
-              </Thead>
-              <Tbody {...getTableBodyProps()}>
-                {rows.map((row) => {
-                  prepareRow(row);
-                  return (
-                    <Tr {...row.getRowProps()}>
-                      {row.cells.map((cell) => {
-                        return (
-                          <Td {...cell.getCellProps()}>
-                            {cell.render('Cell')}
-                          </Td>
-                        );
-                      })}
-                    </Tr>
-                  );
-                })}
-              </Tbody>
-            </Table>
-          </TableContainer>
+          <Text fontSize={'2xl'} fontWeight={'bold'}>
+            {' '}
+            Results{' '}
+          </Text>
+          <CoingeckoTradersTable />
+          <Text fontSize={'2xl'} fontWeight={'bold'}>
+            {' '}
+            Gainers{' '}
+          </Text>
+          <GainersTable />
         </Stack>
       </Container>
     </>

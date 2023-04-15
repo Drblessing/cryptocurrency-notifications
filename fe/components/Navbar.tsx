@@ -238,4 +238,8 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: '⚙️ Listings (Coming soon)',
   },
+  {
+    label: 'Source Code',
+    href: 'https://github.com/Drblessing/cryptocurrency-notifications/',
+  },
 ];

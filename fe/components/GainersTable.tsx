@@ -1,63 +1,22 @@
-import { useEffect, useState } from 'react';
-import { createColumnHelper } from '@tanstack/react-table';
-import DataTable from '@/components/DataTable';
+// @ts-nocheck
+import { useMemo, useEffect, useState } from 'react';
+import ReactTable from '@/components/Table';
 import getBaseURL from '@/components/getBaseURL';
+import { HStack, Link, Icon, Text } from '@chakra-ui/react';
+import NextLink from 'next/link';
+import { MdOpenInNew } from 'react-icons/md';
 
-const GainersTables = function () {
-  const [gainerTokens, setGainerToken] = useState<GainerToken[]>();
+function App() {
+  const [gainerToken, setGainerToken] = useState(null);
 
-  interface DataProps {
-    gainers: GainerToken[];
-    results: string;
-  }
-
-  interface GainerToken {
-    name: string;
-    price: number;
-    percent_change: number;
-    href_id: string;
-    api_id: string;
-    symbol: string;
-    contract_address: `0x${string}`;
-  }
-
-  const columnHelper = createColumnHelper<GainerToken>();
-
-  const columns = [
-    columnHelper.accessor('name', {
-      cell: (info) => info.getValue(),
-      header: 'Name',
-    }),
-    columnHelper.accessor('price', {
-      cell: (info) => info.getValue(),
-      header: 'Price ($)',
-    }),
-    columnHelper.accessor('percent_change', {
-      cell: (info) => info.getValue(),
-      header: 'Percent Change (%)',
-    }),
-    columnHelper.accessor('api_id', {
-      cell: (info) => info.getValue(),
-      header: 'API ID',
-    }),
-    columnHelper.accessor('symbol', {
-      cell: (info) => info.getValue(),
-      header: 'Symbol',
-    }),
-    columnHelper.accessor('contract_address', {
-      cell: (info) => info.getValue(),
-      header: 'Contract Address',
-    }),
-  ];
-
-  // Fetch Data here until cloudflare pages supports NextJS
   useEffect(() => {
     // Define async function to fetch data
     async function fetchData() {
-      const res = await fetch(
-        `${getBaseURL()}/api/apiHandler?method=getGainers`
-      );
+      const res = await fetch(`${getBaseURL()}/api/getBucket`);
       // Raise for error
+      if (!res.ok) {
+        throw new Error(res.statusText);
+      }
 
       const data = await res.json();
       setGainerToken(data);
@@ -67,14 +26,47 @@ const GainersTables = function () {
     fetchData();
   }, []);
 
+  const gainerColumns = useMemo(
+    () =>
+      [
+        // Use href cell to create a link to the coin
+        {
+          Header: 'name',
+          accessor: 'name',
+          Cell: (row) => {
+            row.row.original.href_id;
+            return (
+              <HStack>
+                <Text>{row.value}</Text>
+                <Link
+                  as={NextLink}
+                  href={`https://coingecko.com/en/coins/${row.row.original.href_id}`}
+                  isExternal
+                >
+                  <Icon
+                    as={MdOpenInNew}
+                    color='blue.500'
+                    verticalAlign={'middle'}
+                  />
+                </Link>
+              </HStack>
+            );
+          },
+        },
+        { Header: 'symbol', accessor: 'symbol' },
+        { Header: '24hr (%)', accessor: 'percent_change' },
+        { Header: 'api id', accessor: 'api_id' },
+        { Header: 'price ($)', accessor: 'price' },
+      ] as const,
+    []
+  );
+
   return (
     <>
-      {!gainerTokens && <div>Loading...</div>}
-      {gainerTokens && (
-        <DataTable<GainerToken> columns={columns} data={gainerTokens} />
-      )}
+      {!gainerToken && <div>Loading...</div>}
+      {gainerToken && <ReactTable columns={gainerColumns} data={gainerToken} />}
     </>
   );
-};
+}
 
-export default GainersTables;
+export default App;
