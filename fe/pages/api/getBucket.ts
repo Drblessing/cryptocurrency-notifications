@@ -159,20 +159,17 @@ export default async function onRequest(context: any): Promise<any> {
    * @returns An array of GainerToken objects
    */
   const parseGainers = (gainers: string): GainerToken[] => {
-    console.log(gainers);
     const lines = gainers.split('\n');
     if (lines.length < 1) {
       throw new Error('No lines in gainers');
     }
 
     const headers = lines[0].split(',');
-    console.log(headers);
     const tokens = lines
       .slice(1)
       .map((line) => line.trim().split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/));
 
     const gainerTokens: GainerToken[] = tokens.map((token) => {
-      console.log(token);
       if (!isValidToken(token)) {
         throw new Error(`Invalid token: ${token}`);
       }
