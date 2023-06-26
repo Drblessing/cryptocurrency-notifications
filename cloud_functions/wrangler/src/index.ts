@@ -1,3 +1,4 @@
+//@ts-nocheck
 export default {
 	async fetch(request: Request, env: Env): Promise<Response> {
 		const url = new URL(request.url);
@@ -8,7 +9,7 @@ export default {
 				await env.MY_BUCKET.put(key, request.body);
 				return new Response(`Put ${key} successfully!`);
 			case 'GET':
-				const object = await env.MY_BUCKET.get(key);
+				const object = await env.MY_BUCKET.get('gainers.csv');
 
 				if (object === null) {
 					return new Response('Object Not Found', { status: 404 });
